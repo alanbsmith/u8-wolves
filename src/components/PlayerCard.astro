@@ -1,0 +1,59 @@
+---
+interface Props {
+  number: string;
+  firstName: string;
+  lastName: string;
+}
+
+const { number, firstName, lastName } = Astro.props;
+---
+
+<li class="player-card">
+  <div class="player-card__avatar">
+    <div class="player-card__shirt-number">{number}</div>
+  </div>
+  <div class="player-card__name">
+    <div class="player-card__first-name">{firstName}</div>
+    <div class="player-card__last-name">{lastName}</div>
+  </div>
+</li>
+<style>
+  .player-card {
+    background-color: var(--color-bg-010);
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .player-card__avatar {
+    align-items: center;
+    background-color: var(--color-bg-015);
+    border-radius: 50%;
+    display: flex;
+    height: 4.5rem;
+    justify-content: center;
+    width: 4.5rem;
+  }
+
+  .player-card__name {
+    flex: 1;
+    font-size: 1.5rem;
+  }
+
+  .player-card__first-name {
+    color: var(--color-text-070);
+    font-weight: 400;
+  }
+
+  .player-card__last-name {
+    color: var(--color-text-100);
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .player-card__shirt-number {
+    color: var(--color-accent-050);
+    font-size: 2rem;
+    font-weight: 700;
+  }
+</style>

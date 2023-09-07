@@ -1,0 +1,76 @@
+---
+interface Match {
+  time: string;
+  homeTeam: string;
+  awayTeam: string;
+}
+interface Props {
+  date: string;
+  matches: Match[];
+}
+
+const { date, matches } = Astro.props;
+---
+
+<li class="match-card">
+  <div class="match-card__date">{date}</div>
+  {
+    matches.map((match) => (
+      <>
+        <div class="match-card__time">{match.time}</div>
+        <div class="match-card__teams">
+          <div class="match-card__team">{match.homeTeam}</div>
+          <div class="match-card__vs">vs</div>
+          <div class="match-card__team">{match.awayTeam}</div>
+        </div>
+      </>
+    ))
+  }
+</li>
+
+<style>
+  .match-card {
+    background-color: var(--color-bg-010);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-height: 6rem;
+    padding: 1rem;
+  }
+
+  .match-card__date {
+    color: var(--color-text-100);
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  .match-card__time {
+    color: var(--color-text-070);
+    font-size: 1rem;
+  }
+
+  .match-card__teams {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .match-card__team {
+    color: var(--color-text-090);
+    flex: 1;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .match-card__team-1 {
+    text-align: start;
+  }
+
+  .match-card__vs {
+    color: var(--color-text-070);
+    font-size: 1.25rem;
+    justify-content: center;
+    text-align: center;
+  }
+</style>

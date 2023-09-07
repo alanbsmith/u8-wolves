@@ -1,0 +1,96 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import MatchCard from "../components/MatchCard.astro";
+
+const weeks = [
+  {
+    date: "Saturday, Sept 09",
+    matches: [
+      {
+        time: "01:00pm",
+        homeTeam: "Wolves",
+        awayTeam: "Widgery",
+      },
+    ],
+  },
+  {
+    date: "Saturday, Sept 16",
+    matches: [
+      {
+        time: "09:00am",
+        homeTeam: "Schwarz",
+        awayTeam: "Wolves",
+      },
+      {
+        time: "10:00am",
+        homeTeam: "Gradl",
+        awayTeam: "Wolves",
+      },
+    ],
+  },
+  {
+    date: "Saturday, Sept 23",
+    matches: [
+      {
+        time: "01:00pm",
+        homeTeam: "Thompson",
+        awayTeam: "Wolves",
+      },
+    ],
+  },
+  {
+    date: "Saturday, Sept 30",
+    matches: [
+      {
+        time: "10:00am",
+        homeTeam: "Wolves",
+        awayTeam: "Yoder",
+      },
+    ],
+  },
+  {
+    date: "Saturday, Oct 07",
+    matches: [
+      {
+        time: "09:00am",
+        homeTeam: "Wolves",
+        awayTeam: "Wilmington",
+      },
+    ],
+  },
+  {
+    date: "Saturday, Oct 14",
+    matches: [
+      {
+        time: "11:00am",
+        homeTeam: "Mohr",
+        awayTeam: "Wolves",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="U8 Wolves Matches">
+  <Nav />
+  <main>
+    <Hero title="Matches" />
+    <section>
+      <ul class="match-card-list">
+        {weeks.map((week) => <MatchCard {...week} />)}
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .match-card-list {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.5rem;
+    margin-bottom: 5rem;
+  }
+</style>

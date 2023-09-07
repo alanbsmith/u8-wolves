@@ -1,0 +1,75 @@
+---
+const basePath = "/u8-wolves";
+---
+
+<nav class="main-nav">
+  <ul class="main-nav__list">
+    <li><a class="main-nav__link" href={`${basePath}`}>Home</a></li>
+    <li><a class="main-nav__link" href={`${basePath}/matches`}>Matches</a></li>
+    <li><a class="main-nav__link" href={`${basePath}/players`}>Players</a></li>
+  </ul>
+</nav>
+<script>
+  const navLinks = document.getElementsByClassName("main-nav__link");
+  Array.from(navLinks).forEach((link) => {
+    if (
+      link instanceof HTMLAnchorElement &&
+      link.href === window.location.href
+    ) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+</script>
+<style>
+  .main-nav {
+    bottom: 0;
+    left: 0;
+    min-height: 5rem;
+    position: fixed;
+    right: 0;
+    z-index: 1;
+  }
+
+  .main-nav__list {
+    align-items: center;
+    background-color: var(--color-bg-005);
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    margin: 0 auto;
+    max-width: 48rem;
+    min-height: 5rem;
+    padding: 1rem;
+  }
+
+  .main-nav__link {
+    border-bottom: solid 2px var(--color-bg-005);
+    color: var(--color-text-070);
+    font-size: 1.25rem;
+    font-weight: 300;
+    outline: solid 2px var(--color-bg-005);
+    padding: 0.25rem;
+    text-decoration: none;
+    transition: all 300ms ease;
+  }
+
+  .main-nav__link:visited {
+    color: var(--color-text-070);
+  }
+
+  .main-nav__link:active,
+  .main-nav__link.active,
+  .main-nav__link:hover {
+    border-bottom: solid 2px var(--color-accent-050);
+    color: var(--color-accent-050);
+  }
+
+  .main-nav__link:focus {
+    border-radius: 0.25rem;
+    border: none;
+    color: var(--color-accent-050);
+    outline: solid 2px var(--color-accent-050);
+  }
+</style>
